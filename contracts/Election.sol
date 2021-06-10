@@ -19,14 +19,17 @@ contract Election {
   // strore candidates count in the contract
   uint public candidatesCount;
 
-  // FUNTION TO ADD CANDIDATES
-  function addCandidate(string _name) private{
-    candidatesCount++;
-    candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
-  }
-
   // initialize a constructor
   constructor() public {
-    candidate = "Candidate1";
+    // candidate = "Candidate1";
+    // ADDING CANDIDATES INSIDE THE CONSTRUCTOR
+    addCandidate("Candidate1");
+    addCandidate("Candidate2");
+  }
+
+  // FUNTION TO ADD CANDIDATES
+  function addCandidate(string memory _name) private{
+    candidatesCount++;
+    candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
   }
 }
